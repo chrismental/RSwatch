@@ -178,7 +178,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function setupDataChannel() {
         dataChannel.onopen = () => {
             isPeerConnected = true;
-            hideModal(signalingModal);
+            setTimeout(() => {
+                hideModal(signalingModal);
+            }, 2000); // Auto-close the modal after 2 seconds
+
             if (isHost && player && player.getPlayerState() > 0) {
                 const syncData = {
                     type: 'initial_sync',
