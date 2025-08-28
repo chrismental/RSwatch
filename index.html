@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WatchTogether</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="hearts-container"></div>
+
+    <div id="home-page">
+        <div class="hero">
+            <h1 class="brand-title">WatchTogether</h1>
+            <p class="tagline">Your private cinema, wherever you are.</p>
+            <div class="room-actions">
+                <button id="create-room-btn" class="btn btn-primary">Create a Room</button>
+                <p class="or-separator">or</p>
+                <div class="join-room-wrapper">
+                    <input type="text" id="join-room-input" placeholder="Paste Room Link to Join">
+                    <button id="join-room-btn" class="btn">Join</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="video-page" class="hidden">
+        <header class="video-header">
+            <h1 class="brand-title-small">WatchTogether</h1>
+            <div id="room-info">
+                <p>Your Room is Ready!</p>
+            </div>
+        </header>
+        <div class="main-content">
+            <div class="video-wrapper">
+                <div id="hug-animation-container"></div>
+                <div id="video-placeholder">
+                    <h2>Paste a YouTube link below to start watching!</h2>
+                </div>
+                <div id="player"></div>
+                <div class="video-controls">
+                    <input type="text" id="youtube-url-input" placeholder="Paste a YouTube URL to add to queue">
+                    <button id="load-video-btn" class="btn">Add to Queue</button>
+                </div>
+            </div>
+            <div class="side-panel">
+                <div class="chat-wrapper">
+                    <div class="chat-header">
+                        <h3>Chat</h3>
+                    </div>
+                    <div id="chat-box">
+                        <!-- Messages will appear here -->
+                    </div>
+                    <div class="chat-input-wrapper">
+                        <input type="text" id="chat-input" placeholder="Type a message...">
+                        <button id="send-hug-btn" class="btn">🤗</button>
+                        <button id="send-chat-btn" class="btn">❤️</button>
+                    </div>
+                </div>
+                <div class="playlist-wrapper">
+                    <div class="playlist-header">
+                        <h3>Up Next</h3>
+                    </div>
+                    <div id="playlist-box">
+                        <!-- Playlist items will appear here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Room Modal -->
+    <div id="create-room-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Create a Private Room</h2>
+            <p>Set a password for your room.</p>
+            <input type="password" id="room-password-input" placeholder="Enter a password">
+            <p>Choose a theme:</p>
+            <div id="theme-selection" class="theme-selector">
+                <button class="theme-btn" data-theme="default">Default</button>
+                <button class="theme-btn" data-theme="pastel">Pastel</button>
+                <button class="theme-btn" data-theme="midnight">Midnight</button>
+            </div>
+            <button id="confirm-create-room-btn" class="btn btn-primary">Create</button>
+            <button class="btn btn-secondary close-modal-btn">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Join Room Password Modal -->
+    <div id="join-password-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Enter Room Password</h2>
+            <input type="password" id="join-password-input" placeholder="Enter the password">
+            <button id="confirm-join-btn" class="btn btn-primary">Enter</button>
+            <button class="btn btn-secondary close-modal-btn">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Signaling Modal -->
+    <div id="signaling-modal" class="modal hidden">
+        <div class="modal-content" id="signaling-content">
+            <!-- Content will be injected by JS -->
+        </div>
+    </div>
+
+    <div id="error-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Error</h2>
+            <p id="error-message"></p>
+            <button id="close-error-modal-btn" class="btn">Close</button>
+        </div>
+    </div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+</body>
+</html>
