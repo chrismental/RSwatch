@@ -301,6 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const answer = JSON.parse(atob(document.getElementById('answer-input').value));
             if (answer) {
                 await peerConnection.setRemoteDescription(new RTCSessionDescription(answer));
+                hideModal(signalingModal); // Close modal immediately for the host
             }
         });
     }
